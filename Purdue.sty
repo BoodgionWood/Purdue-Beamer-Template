@@ -1,0 +1,101 @@
+\mode<presentation>
+
+\newif\ifbeamer@secheader
+\beamer@secheaderfalse
+
+%\DeclareOptionBeamer{secheader}{\beamer@secheadertrue}
+\ProcessOptionsBeamer
+
+\useoutertheme[footline=authorinstitutetitle,subsection=false]{smoothbars}
+\makeatletter % [add curpage/total page at the bottom](http://tex.stackexchange.com/questions/100838/beamer-dresden-theme-miniframes-appeareance-and-frame-number-insertion)
+\newcommand{\frameofframes}{/}
+\newcommand{\setframeofframes}[1]{\renewcommand{\frameofframes}{#1}}
+\setbeamertemplate{footline}
+  {%
+    \begin{beamercolorbox}[colsep=1.5pt]{upper separation line foot}
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
+      leftskip=.3cm,rightskip=.3cm plus1fil]{author in head/foot}%
+      \leavevmode{\usebeamerfont{author in head/foot}\insertshortauthor}%
+      \hfill%
+      {\usebeamerfont{institute in head/foot}\usebeamercolor[fg]{institute in head/foot}\insertshortinstitute}%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
+      leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+      {\usebeamerfont{title in head/foot}\insertshorttitle}%
+      \hfill%
+      {\usebeamerfont{frame number}\usebeamercolor[fg]{frame number}\insertframenumber~\frameofframes~\inserttotalframenumber}
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[colsep=1.5pt]{lower separation line foot}
+    \end{beamercolorbox}
+  }
+\makeatother
+
+%\useoutertheme{default}
+%\useinnertheme[shadow=true]{rounded}
+
+\xdefinecolor{purdueblack}{HTML}{000000}
+\xdefinecolor{purduegold}{HTML}{D5973D}  %  old gold: D5973D CFB53B B1946C, from bright to dark
+\xdefinecolor{shadedwhite}{HTML}{F9F9F9}
+\xdefinecolor{itemcolor}{HTML}{D5973D}
+\setbeamercolor{footline}{bg=purdueblack}
+\setbeamercolor{frametitle}{bg=purdueblack,fg=purduegold}
+\setbeamercolor{title}{bg=purdueblack}
+% Change background to not so shiny white
+\setbeamercolor{background canvas}{bg=shadedwhite}
+\setbeamerfont{frametitle}{size=\large}
+%\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{bibliography item}[text]
+\setbeamertemplate{caption}[numbered]
+
+% set itemized items to shaded instead of not showing at all, when they are not mentioned,
+\setbeamercovered{transparent}
+% set itemized items to gold circle while keep section title page in black circle and gold font
+\useinnertheme{circles}
+%\setbeamertemplate{itemize items}[circle]
+\setbeamercolor{item}{fg=purdueblack}
+\setbeamercolor{itemize item}{fg=itemcolor}
+\setbeamercolor{itemize subitem}{fg=itemcolor}
+\setbeamercolor{itemize subsubitem}{fg=itemcolor}
+
+\setbeamercolor{structure}{fg=purduegold}
+\setbeamercolor{palette primary}{use=structure,fg=purduegold,bg=structure.fg}
+\setbeamercolor{palette secondary}{use=structure,fg=purduegold,bg=structure.fg!75!purduegold}
+\setbeamercolor{palette tertiary}{use=structure,fg=purduegold,bg=structure.fg!50!purduegold}
+% The color of the top progress bar
+\setbeamercolor{palette quaternary}{fg=purduegold,bg=structure.fg!80!white}
+\setbeamercolor*{sidebar}{use=structure,bg=structure.fg}
+\setbeamercolor{titlelike}{parent=palette primary}
+
+%% try
+\setbeamercolor{block title}{bg=purdueblack,fg=purduegold}
+\setbeamercolor*{block title example}{use={normal text,example text},bg=purduegold,fg=purdueblack}
+\setbeamercolor{fine separation line}{fg=purduegold}
+\setbeamercolor{item projected}{fg=purduegold}
+\setbeamercolor{palette sidebar primary}{use=normal text,fg=normal text.fg}
+\setbeamercolor{palette sidebar quaternary}{use=structure,fg=structure.fg}
+\setbeamercolor{palette sidebar secondary}{use=structure,fg=structure.fg}
+\setbeamercolor{palette sidebar tertiary}{use=normal text,fg=normal text.fg}
+%\setbeamercolor{palette sidebar quaternary}{fg=purduegold}
+\setbeamercolor{section in sidebar}{fg=brown}
+\setbeamercolor{section in sidebar shaded}{fg=grey}
+\setbeamercolor{separation line}{}
+\setbeamercolor{sidebar}{bg=purdueblack}
+\setbeamercolor{sidebar}{parent=palette primary}
+\setbeamercolor{structure}{fg=purdueblack}
+\setbeamercolor{subsection in sidebar}{fg=brown}
+\setbeamercolor{subsection in sidebar shaded}{fg=grey}
+\AtBeginSection[]{
+	\begin{frame}
+		\tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/show/hide,subsubsectionstyle=show/shaded/hide]
+	\end{frame}
+}
+
+%\AtBeginSubsection[]{
+%	\begin{frame}
+%		\tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/shaded/hide,subsubsectionstyle=show/shaded/hide]
+%	\end{frame}
+%}
+
+\mode
+<all>

@@ -1,0 +1,105 @@
+% For format, please refer to TsingHua template at https://github.com/tuna/THU-Beamer-Theme
+% For Purdue content and color, please refer to https://github.com/abarbu/purdue-beamer
+
+\documentclass{beamer}
+\usepackage{hyperref}
+%\usepackage[numbers]{natbib}
+\usepackage{natbib}
+\bibliographystyle{plainnat}
+\usepackage[T1]{fontenc}
+\usepackage{latexsym,amsmath,xcolor,multicol,booktabs,calligra}
+\usepackage{graphicx,listings,stackengine}
+
+\author{Haoyun Yin}
+\title{Wasserstein Coreset via Sinkhorn Loss}
+\subtitle{JSM 2024}
+\institute{Department of Statistics, Purdue University}
+\date{\today}
+\usepackage{Purdue}
+
+% defs
+\def\cmd#1{\texttt{\color{red}\footnotesize $\backslash$#1}}
+\def\env#1{\texttt{\color{blue}\footnotesize #1}}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+\definecolor{halfgray}{gray}{0.55}
+
+\lstset{
+    basicstyle=\ttfamily\small,
+    keywordstyle=\bfseries\color{deepblue},
+    emphstyle=\ttfamily\color{deepred},    % Custom highlighting style
+    stringstyle=\color{deepgreen},
+    numbers=left,
+    numberstyle=\small\color{halfgray},
+    rulesepcolor=\color{red!20!green!20!blue!20},
+    frame=shadowbox,
+}
+
+\begin{document}
+\begin{frame}
+    \titlepage
+    \begin{figure}[htpb]
+        \begin{center}
+            \includegraphics[width=0.3\linewidth]{pic/PU_signature_eps}
+        \end{center}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+\tableofcontents[sectionstyle=show,
+subsectionstyle=show/shaded/hide,
+subsubsectionstyle=show/shaded/hide]
+\end{frame}
+
+\section{Introduction}
+
+\begin{frame}
+\frametitle{Introduction}
+This presentation discusses the challenges in data science, including missing, noisy, and imbalanced data. We will explore the concept of Wasserstein Coreset via Sinkhorn Loss.
+
+\end{frame}
+
+\section{Backgrounds}
+\subsection{Wasserstein Distance \& Sinkhorn Loss}
+% without [<+->], all items are shown at once
+\begin{frame}[<+->]
+\frametitle{Related Work}
+\begin{itemize}
+\item The Wasserstein distance is discussed in \citep{villani2009optimal}.
+\item The Sinkhorn loss and algorithm is introduced in \citep{cuturi2013sinkhorn}.
+\item The relationship between Wasserstein distance, MMD and Sinkhorn loss is discussed in \citep{feydy2019interpolating}.
+\end{itemize}
+\end{frame}
+
+\subsection{Coresets}
+\begin{frame}[<+->]
+\frametitle{Coresets}
+\begin{itemize}
+    \item Coreset is a small weighted subset of the data that approximates the original data.
+    \item The concept of Wasserstein Coreset is discussed in \citep{ClaiciSebastian2018WMC}.
+\end{itemize}
+\end{frame}
+
+\section{Methodology}
+\begin{frame}[<+->]
+\frametitle{Methodology}
+\begin{itemize}
+    \item We propose a new method to construct Wasserstein Coreset via Sinkhorn Loss.
+    \item The method is suitable for high-dimensional data.
+    \item The method is efficient and stable.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+\frametitle{References}
+\tiny\bibliography{references}
+\end{frame}
+
+\begin{frame}
+    \begin{center}
+        {\Huge\calligra Thanks!}
+    \end{center}
+\end{frame}
+
+\end{document}
